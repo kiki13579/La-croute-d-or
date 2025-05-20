@@ -1,0 +1,248 @@
+body {
+    margin: 0;
+    background-color: var(--couleur-secondaire);
+}
+
+.admin-main {
+    display: flex;
+    font-family: var(--font-principal);
+    margin: 25px;
+    padding: 25px;
+    background-color: var(--couleur-tertiaire);
+    border-radius: var(--border-radius);
+}
+
+.main-sidebar {
+    background-color: var(--couleur-quaternaire);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-sidebar h3 {
+    font-style: italic;
+    background-color: var(--couleur-tertiaire);
+    border-radius: var(--border-radius);
+    padding: 5px 10px;
+    margin-bottom: 20px;
+
+}
+
+.main-sidebar button {
+    margin: 10px 0;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: #d9d9d9;
+    cursor: pointer;
+    width: 100%;
+}
+
+.main-sidebar button:hover {
+    background-color: #e5e5e5;
+}
+
+.main-panel {
+    flex: 1;
+    margin-left: 30px;
+}
+
+.main-panel h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--couleur-quaternaire);
+    padding: 5px 20px;
+    width: 200px;
+    font-size: 32px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    font-style: italic;
+    margin: 0 auto;
+}
+
+/* Pour ma partie dynamique aller voir le fichier admin_panel.js */
+.dashboard-home {
+  text-align: center;
+  padding: 40px;
+}
+
+.dashboard-home h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.dashboard-home p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.dashboard-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.home-card {
+  background: var(--couleur-tertiaire);
+  border-radius: 12px;
+  padding: 30px;
+  min-width: 150px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content-area {
+    background-color: var(--couleur-quaternaire);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    height: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.categorie-container, .pizza-container, .prix-container, .ingredient-container {
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.categorie-form, .categorie-list, .pizza-form, .pizza-list, .prix-form, .prix-list, .ingredient-form, .ingredient-list {
+    flex: 1;
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+.categorie-form, .prix-form, .ingredient-form {
+    height: 250px;
+    align-items: center;
+
+}
+.pizza-form {
+    height: 450px;
+}
+
+.categorie-form h3,
+.categorie-list h3,
+.pizza-form h3,
+.pizza-list h3,
+.prix-form h3,
+.prix-list h3,
+.ingredient-form h3,
+.ingredient-list h3 {
+    width: 30%;
+    margin: 10px auto;
+  background: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  display: inline-block;
+  font-style: italic;
+}
+
+.categorie-form input, .pizza-form input, .prix-form input, .ingredient-form input {
+  padding: 10px;
+  border-radius: 10px;
+  width: 80%;
+  border: none;
+  margin-top: 10px;
+}
+
+.categorie-form button, .pizza-form button, .prix-form button, .ingredient-form button {
+    display: flex;
+    justify-content: center;
+  margin: 20px auto 0 auto;
+  background: white;
+  padding: 10px 20px;
+  border: none;
+  width: 25%;
+  border-radius: 20px;
+  font-style: italic;
+  cursor: pointer;
+}
+
+
+.categorie-list ul, .pizza-list ul, .prix-list ul, .ingredient-list ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px;
+}
+
+.categorie-list li, .pizza-list li, .prix-list li, .ingredient-list li {
+  background: #e5e5e5;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* centre horizontalement le contenu */
+  align-items: center;
+  margin: 8px 0;
+  list-style: none;
+  font-size: 18px;
+}
+.delete-btn {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+}
+.select {
+    margin: 10px auto 10px auto;
+}
+.select-multiple-style {
+    margin-top: 10px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.checkbox-item {
+    position: relative;
+}
+
+.checkbox-item input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-item label {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.checkbox-item input[type="checkbox"]:checked + label {
+    background-color: #4caf50;
+    color: white;
+    border-color: #4caf50;
+}

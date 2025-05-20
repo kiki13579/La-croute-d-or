@@ -1,0 +1,39 @@
+.header {
+    padding: 0 20px;
+    width: 100%;
+    height: 85px;
+    background-color: var(--couleur-principale);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h1 {
+    font-family: var(--font-principal);
+    font-size: 60px;
+    color: #4a300a;
+    font-weight: bold;
+}
+.nav-button {
+    background-color: var(--couleur-secondaire);
+    color: var(--texte-sombre);
+    font-family: var(--font-principal);
+    font-size: 36px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+.nav-button:hover {
+    background-color: #fff6c5;
+}
+.nv0 {
+    width: 150px;
+    height: 50px;
+    margin-right: 35px;
+}
+.nv1 {
+    width: 200px;
+    height: 50px;
+        margin-right: 35px;
+
+}
+

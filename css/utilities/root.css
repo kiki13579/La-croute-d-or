@@ -1,0 +1,13 @@
+:root {
+    --couleur-principale: #E1B24C;
+    --couleur-secondaire: #FADD75;
+    --couleur-tertiaire: #D9D9D9;
+    --couleur-quaternaire: #ffffff;
+    --texte-clair: #ffffff;
+    --texte-sombre: #333333;
+    --box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+    --border-radius: 30px;
+    --border-radius-small: 10px;
+    --font-principal: "Grape Nuts", cursive;
+
+}
