@@ -133,7 +133,11 @@ body {
 
 }
 .pizza-form {
-    height: 450px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .categorie-form h3,
@@ -245,4 +249,9 @@ body {
     background-color: #4caf50;
     color: white;
     border-color: #4caf50;
+}
+.card-img {
+    width: 200px;
+    height: 150px;
+    border-radius: var(--border-radius);
 }

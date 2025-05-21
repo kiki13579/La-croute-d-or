@@ -4,8 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./css/html/home.css">
+    <script src="./js/home.js" defer></script>
+
 </head>
 <body>
-    <a href="./html/admin.html">admin</a>
+    <header class="header">
+        <div class="logo">
+            <h1>La croute d'or</h1>
+        </div>
+        <nav class="nav">
+            <button class="nav-button nv0" id="nv0">Accueil</button>
+            <button class="nav-button nv2" id="nv2">Panier</button>
+            <button class="nav-button nv1" id="nv1">Connexion</button>
+        </nav>
+    </header>
+    <main class="main">
+        <h2 class="main-title">Toutes nos pizza</h2>
+        <div class="layout">
+            <aside class="sidebar">
+                <h3>Filtre :</h3>
+                <label for="search-name">Rechercher :</label>
+                <input type="text" id="search-name" placeholder="Recherche" />
+
+                <label for="filter-category">Catégorie :</label>
+                <select id="filter-category">
+                    <option value="Tous">Tous</option>
+                </select>
+
+                <label for="filter-ingredient">Ingrédients :</label>
+                <select id="filter-ingredient">
+                    <option value="Tous">Tous</option>
+                </select>
+
+                <label for="filter-price">Prix :</label>
+                <select id="filter-price">
+                    <option value="Tous">Tous</option>
+                </select>
+                <button id="btn-reset-filtres">Réinitialiser les filtres</button>
+            </aside>
+            <div class="pizza-list-header">
+                <div class="pizza-list"></div>
+                <div class="cart">
+                    <button id="btn-commande" class="btn-commande">Commander</button>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

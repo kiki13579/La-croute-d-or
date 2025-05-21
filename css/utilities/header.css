@@ -25,7 +25,7 @@ h1 {
 .nav-button:hover {
     background-color: #fff6c5;
 }
-.nv0 {
+.nv0, .nv2 {
     width: 150px;
     height: 50px;
     margin-right: 35px;

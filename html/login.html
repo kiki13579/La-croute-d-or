@@ -13,14 +13,22 @@
             <h1>La croute d'or</h1>
         </div>
         <nav class="nav">
-            <button class="nav-button nv0">Accueil</button>
-            <button class="nav-button nv1">Déconnexion</button>
+            <button class="nav-button nv0" id="nv0">Accueil</button>
         </nav>
     </header>
     <main class="login-main">
         <section class="main-connexion">
             <h2>Connexion</h2>
             <div class="connexion-area" id="connexion-area">
+                <div class="connexion-area-div">
+                <label for="username"> Nom d'utilisateur : </label>
+                <input type="text" id="username" placeholder="Nom d'utilisateur">
+                </div>
+                <div class="connexion-area-div">
+                    <label for="password"> Mot de passe : </label>
+                    <input type="password" id="password" placeholder="Mot de passe">
+                </div>
+                <button id="connexion">Connexion</button>
             </div>
         </section>
     </main>

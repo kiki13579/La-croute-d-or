@@ -1,9 +1,25 @@
+if (sessionStorage.getItem("accesAutorise") !== "true") {
+    window.location.href = "login.html";
+}
+const logoutButton = document.querySelector(".nv1");
 document.addEventListener("DOMContentLoaded", () => {
     const btnCategorie = document.getElementById("btn-categorie");
     const btnPrix = document.getElementById("btn-prix");
     const btnIngredient = document.getElementById("btn-ingredient");
     const btnPizza = document.getElementById("btn-pizza");
     const contentArea = document.getElementById("content-area");
+    const logoutButton = document.querySelector(".nv1");
+
+    document.getElementById("nv0").addEventListener("click", () => {
+        window.location.href = "../index.html";
+    });
+    if (logoutButton) {
+        logoutButton.addEventListener("click", () => {
+            sessionStorage.removeItem("accesAutorise");
+            window.location.href = "login.html";
+        });
+    }
+
 
     contentArea.innerHTML = `<div style="text-align:center; margin-top: 50px;"><h2>Bienvenue sur le panneau d'administration</h2><p>Sélectionnez une option dans la barre latérale pour commencer.</p></div>`;
 
@@ -185,124 +201,136 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     btnPizza.addEventListener("click", () => {
-        contentArea.innerHTML = `
-            <div class="pizza-container">
-                <div class="pizza-form">
-                    <h3>Création de pizza</h3>
-                    <div>
-                        <input type="text" id="pizza-nom" placeholder="Nom de la pizza">
-                    </div>
-                    <div>
-                        <label for="pizza-categorie">Catégorie :</label>
-                        <select id="pizza-categorie"></select>
-                    </div>
-                    <div>
-                        <label>Ingrédients :</label>
-                        <div id="ingredients-checkboxes" class="checkbox-wrapper"></div>
-                    </div>
-                    <div>
-                        <label for="pizza-prix">Prix :</label>
-                        <select id="pizza-prix"></select>
-                    </div>
-                    <button id="creer-pizza">Créer la pizza</button>
-                </div>
-                <div class="pizza-list">
-                    <h3>Liste des pizzas</h3>
-                    <ul id="liste-pizzas"></ul>
-                </div>
+    contentArea.innerHTML = `
+        <div class="pizza-container">
+            <div class="pizza-form">
+                <h3>Création de pizza</h3>
+                <input type="text" id="pizza-nom" placeholder="Nom de la pizza">
+                <label for="pizza-categorie">Catégorie :</label>
+                <select id="pizza-categorie"></select>
+                <label>Ingrédients :</label>
+                <div id="ingredients-checkboxes" class="checkbox-wrapper"></div>
+                <label for="pizza-prix">Prix :</label>
+                <select id="pizza-prix"></select>
+                <label for="pizza-image-url">Image:</label>
+                <input type="text" id="pizza-image-url" placeholder="Nom du fichier image dans /images/">
+                <button id="creer-pizza">Créer la pizza</button>
             </div>
-        `;
-        const nomInput = document.getElementById("pizza-nom");
-        const categorieSelect = document.getElementById("pizza-categorie");
-        const prixSelect = document.getElementById("pizza-prix");
-        const liste = document.getElementById("liste-pizzas");
-        const creerBtn = document.getElementById("creer-pizza");
+            <div class="pizza-list">
+                <h3>Liste des pizzas</h3>
+                <ul id="liste-pizzas"></ul>
+            </div>
+        </div>
+    `;
 
-        function afficherCategories() {
-            const categories = JSON.parse(localStorage.getItem("categories")) || [];
-            categorieSelect.innerHTML = "";
-            categories.forEach(cat => {
-                const opt = document.createElement("option");
-                opt.value = cat;
-                opt.textContent = cat;
-                categorieSelect.appendChild(opt);
-            });
-        }
+    const nomInput = document.getElementById("pizza-nom");
+    const categorieSelect = document.getElementById("pizza-categorie");
+    const prixSelect = document.getElementById("pizza-prix");
+    const imageUrlInput = document.getElementById("pizza-image-url");
+    const liste = document.getElementById("liste-pizzas");
+    const creerBtn = document.getElementById("creer-pizza");
 
-        function afficherPrix() {
-            const prix = JSON.parse(localStorage.getItem("prix")) || [];
-            prixSelect.innerHTML = "";
-            prix.forEach(p => {
-                const opt = document.createElement("option");
-                opt.value = p;
-                opt.textContent = `${p} €`;
-                prixSelect.appendChild(opt);
-            });
-        }
-
-        function afficherCheckboxIngredients() {
-            const container = document.getElementById("ingredients-checkboxes");
-            const ingredients = JSON.parse(localStorage.getItem("ingredients")) || [];
-            container.innerHTML = "";
-            ingredients.forEach((ing, i) => {
-                const id = `ingredient-${i}`;
-                const input = document.createElement("input");
-                input.type = "checkbox";
-                input.value = ing;
-                input.id = id;
-                input.name = "ingredients";
-                const label = document.createElement("label");
-                label.setAttribute("for", id);
-                label.textContent = ing;
-                const wrapper = document.createElement("div");
-                wrapper.classList.add("checkbox-item");
-                wrapper.appendChild(input);
-                wrapper.appendChild(label);
-                container.appendChild(wrapper);
-            });
-        }
-
-        function afficherPizzas() {
-            const pizzas = JSON.parse(localStorage.getItem("pizzas")) || [];
-            liste.innerHTML = "";
-            pizzas.forEach((pizza, index) => {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong>${pizza.nom}</strong> - ${pizza.categorie} - ${pizza.ingredients.join(", ")} - ${pizza.prix} €`;
-                const delBtn = document.createElement("button");
-                delBtn.textContent = "✖";
-                delBtn.style.marginLeft = "10px";
-                delBtn.style.color = "red";
-                delBtn.onclick = () => {
-                    pizzas.splice(index, 1);
-                    localStorage.setItem("pizzas", JSON.stringify(pizzas));
-                    afficherPizzas();
-                };
-                li.appendChild(delBtn);
-                liste.appendChild(li);
-            });
-        }
-        creerBtn.addEventListener("click", () => {
-            const nom = nomInput.value.trim();
-            const categorie = categorieSelect.value;
-            const prix = prixSelect.value;
-            const selectedIngredients = Array.from(
-                document.querySelectorAll("input[name='ingredients']:checked")
-            ).map(cb => cb.value);
-            if (nom && categorie && selectedIngredients.length > 0 && prix) {
-                const pizzas = JSON.parse(localStorage.getItem("pizzas")) || [];
-                pizzas.push({ nom, categorie, ingredients: selectedIngredients, prix });
-                localStorage.setItem("pizzas", JSON.stringify(pizzas));
-                nomInput.value = "";
-                afficherPizzas();
-            } else {
-                alert("Veuillez remplir tous les champs.");
-            }
+    function afficherCategories() {
+        const categories = JSON.parse(localStorage.getItem("categories")) || [];
+        categorieSelect.innerHTML = "";
+        categories.forEach(cat => {
+            const opt = document.createElement("option");
+            opt.value = cat;
+            opt.textContent = cat;
+            categorieSelect.appendChild(opt);
         });
+    }
 
-        afficherCategories();
-        afficherPrix();
-        afficherCheckboxIngredients();
+    function afficherPrix() {
+        const prixList = JSON.parse(localStorage.getItem("prix")) || [];
+        prixSelect.innerHTML = "";
+        prixList.forEach(p => {
+            const opt = document.createElement("option");
+            opt.value = p;
+            opt.textContent = `${p} €`;
+            prixSelect.appendChild(opt);
+        });
+    }
+
+    function afficherCheckboxIngredients() {
+        const container = document.getElementById("ingredients-checkboxes");
+        const ingredients = JSON.parse(localStorage.getItem("ingredients")) || [];
+        container.innerHTML = "";
+        ingredients.forEach((ing, i) => {
+            const id = `ingredient-${i}`;
+            const input = document.createElement("input");
+            input.type = "checkbox";
+            input.value = ing;
+            input.id = id;
+            input.name = "ingredients";
+            const label = document.createElement("label");
+            label.setAttribute("for", id);
+            label.textContent = ing;
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("checkbox-item");
+            wrapper.appendChild(input);
+            wrapper.appendChild(label);
+            container.appendChild(wrapper);
+        });
+    }
+
+    function afficherPizzas() {
+        const pizzas = JSON.parse(localStorage.getItem("pizzas")) || [];
+        liste.innerHTML = "";
+        pizzas.forEach((pizza, index) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <strong>${pizza.nom}</strong> - ${pizza.categorie} - ${pizza.ingredients.join(", ")} - ${pizza.prix} €
+                <br>
+                ${pizza.image ? `<img class="card-img" src="../assets/${pizza.image}" alt="${pizza.nom}" style="max-width:150px; margin-top:5px;">` : ""}
+            `;
+            li.style.display = "flex";
+            li.style.flexDirection = "column";
+            const delBtn = document.createElement("button");
+            delBtn.textContent = "✖";
+            delBtn.style.marginLeft = "10px";
+            delBtn.style.color = "red";
+            delBtn.onclick = () => {
+                pizzas.splice(index, 1);
+                localStorage.setItem("pizzas", JSON.stringify(pizzas));
+                afficherPizzas();
+            };
+            li.appendChild(delBtn);
+            liste.appendChild(li);
+        });
+    }
+
+    creerBtn.addEventListener("click", () => {
+    const nom = nomInput.value.trim();
+    const categorie = categorieSelect.value;
+    const prix = prixSelect.value;
+    const ingredients = Array.from(document.querySelectorAll("input[name='ingredients']:checked")).map(cb => cb.value);
+    const image = imageUrlInput.value.trim();
+
+    if (nom && categorie && prix && ingredients.length > 0 && image) {
+        const pizzas = JSON.parse(localStorage.getItem("pizzas")) || [];
+
+        if (pizzas.length >= 20) {
+            alert("Le nombre maximum de pizzas est atteint. Supprimez une pizza pour en ajouter une nouvelle.");
+            return;
+        }
+
+        pizzas.push({ nom, categorie, prix, ingredients, image });
+        localStorage.setItem("pizzas", JSON.stringify(pizzas));
+
+        nomInput.value = "";
+        imageUrlInput.value = "";
+        document.querySelectorAll("input[name='ingredients']").forEach(cb => cb.checked = false);
         afficherPizzas();
-    });
+    } else {
+        alert("Veuillez remplir tous les champs.");
+    }
+});
+
+    afficherCategories();
+    afficherPrix();
+    afficherCheckboxIngredients();
+    afficherPizzas();
+});
 
 });

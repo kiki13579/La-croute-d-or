@@ -1,0 +1,91 @@
+.main {
+  background-color: #dcdcdc;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px;
+}
+.main-title {
+  text-align: center;
+  background-color: var(--couleur-quaternaire);
+  width: fit-content;
+  margin: 0 auto 20px;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+.layout {
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: var(--couleur-quaternaire);
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar label {
+  margin-top: 10px;
+}
+
+.pizza-list-header {
+    background-color: var(--couleur-quaternaire);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    width: 100%;
+    
+    padding: 25px;
+    
+}
+.pizza-list {
+    background-color: var(--couleur-quaternaire);
+    border-radius: var(--border-radius);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 10px;
+    margin: 0 auto;
+    max-height: 700px;
+    overflow-y: auto;
+    text-align: center;
+}
+.card {
+    background-color: var(--couleur-tertiaire);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-h3 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+.card-p {
+    font-size: 18px;
+    margin: 1px 0;
+}
+.btn-commande {
+    background-color: var(--couleur-principale);
+    color: var(--texte-clair);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    font-size: 18px;
+}
+.cart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 25%;
+    margin: 10px auto;
+}
+.card-img {
+    width: 200px;
+    height: 150px;
+    border-radius: var(--border-radius);
+}
