@@ -1,0 +1,83 @@
+# ==============================================================================
+# FICHIER HTACCESS POUR "La Croûte d'Or"
+# ==============================================================================
+
+# Ne pas lister les fichiers des dossiers si pas de fichier index.
+# Mesure de sécurité simple et efficace.
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    # Activation du module de réécriture d'URL
+    RewriteEngine On
+
+    # Définir le dossier de base (laisser "/" si le site est à la racine)
+    RewriteBase /
+
+    # --------------------------------------------------------------------------
+    # REDIRECTIONS SEO
+    # --------------------------------------------------------------------------
+
+    # 1. Forcer le HTTPS (SSL)
+    # C'est essentiel pour la sécurité et le SEO.
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # 2. Forcer la version WWW (choisir UNE des deux options ci-dessous)
+    # Avoir une seule version de l'URL est crucial pour éviter le contenu dupliqué.
+    # -- OPTION A : Forcer www.votresite.fr
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # -- OPTION B : Forcer votresite.fr (sans les www) - commentée par défaut
+    # Si tu préfères cette version, supprime le '#' de ces deux lignes
+    # et ajoute un '#' devant les deux lignes de l'OPTION A.
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
+
+    # 3. Supprimer l'extension .html pour avoir des URLs propres
+    # Transforme "votresite.fr/contact.html" en "votresite.fr/contact"
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+
+</IfModule>
+
+# ==============================================================================
+# PERFORMANCE : GESTION DU CACHE NAVIGATEUR
+# Indique au navigateur de garder en mémoire les fichiers pour accélérer le site
+# ==============================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                              "access plus 1 month"
+    ExpiresByType text/css                        "access plus 1 year"
+    ExpiresByType text/javascript                 "access plus 1 year"
+    ExpiresByType application/javascript          "access plus 1 year"
+    ExpiresByType image/gif                       "access plus 1 year"
+    ExpiresByType image/jpeg                      "access plus 1 year"
+    ExpiresByType image/png                       "access plus 1 year"
+    ExpiresByType image/svg+xml                   "access plus 1 year"
+    ExpiresByType image/x-icon                    "access plus 1 year"
+    ExpiresByType application/pdf                 "access plus 1 month"
+</IfModule>
+
+# ==============================================================================
+# SÉCURITÉ
+# ==============================================================================
+
+# Protéger ce fichier .htaccess pour qu'il ne soit pas accessible en ligne
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+# Protéger contre le détournement de clic (clickjacking)
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ==============================================================================
+# PAGES D'ERREUR PERSONNALISÉES
+# Améliore l'expérience utilisateur en cas de problème.
+# ==============================================================================
+ErrorDocument 403 /html/erreurs/403.html
+ErrorDocument 404 /html/erreurs/404.html
+ErrorDocument 500 /html/erreurs/500.html

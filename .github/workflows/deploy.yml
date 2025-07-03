@@ -1,0 +1,42 @@
+# Nom du workflow qui apparaîtra dans l'onglet "Actions" de ton dépôt GitHub
+name: Déployer le site sur le serveur FTP
+
+# Déclencheur du workflow
+on:
+  # Exécute le workflow à chaque "push" sur la branche "main"
+  push:
+    branches:
+      - main
+
+# Liste des tâches à exécuter
+jobs:
+  deploy:
+    # Utilise la dernière version d'Ubuntu disponible sur GitHub Actions
+    runs-on: ubuntu-latest
+
+    # Séquence des étapes à suivre pour le déploiement
+    steps:
+      # 1. Récupère le code de ton dépôt
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      # 2. Envoi des fichiers sur le serveur FTP
+      - name: Déploiement FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          # Adresse du serveur FTP (à configurer dans les secrets)
+          server: ${{ secrets.FTP_SERVER }}
+          
+          # Nom d'utilisateur FTP (à configurer dans les secrets)
+          username: ${{ secrets.FTP_USERNAME }}
+          
+          # Mot de passe FTP (à configurer dans les secrets)
+          password: ${{ secrets.FTP_PASSWORD }}
+          
+          # Dossier de destination sur le serveur (souvent 'public_html', 'www' ou '/')
+          server-dir: /la-croute-dor/
+
+          # Optionnel : pour effacer les fichiers qui ne sont plus dans le dépôt
+          # Attention, cette option peut être dangereuse si mal configurée.
+          # A n'utiliser que si vous êtes sûr de vous.
+          # dangerous-clean-slate: true
