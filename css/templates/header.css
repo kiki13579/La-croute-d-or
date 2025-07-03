@@ -1,0 +1,71 @@
+.header {
+    background-color: var(--bg-p);
+    text-align: center;
+    color: var(--text-color);
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--bg-s);
+    border-bottom: 1px solid grey;
+}
+.nav h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+.nav-links li a:hover {
+    color: var(--hl-hover);
+    font-weight: bold;
+}
+
+.nav-links li a.active {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--hl-hover);
+}
+
+.header-content {
+    padding: 20px;
+    background: var(--bg-t);
+    border-bottom: 1px solid grey;
+}
+.header-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+.header-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 400px) {
+  nav h1 {
+    font-size: 1rem;         /* réduit la taille du titre */
+    max-width: 140px;        /* limite la largeur */
+    white-space: nowrap;     /* empêche le retour à la ligne */
+    overflow: hidden;        /* cache le dépassement */
+    text-overflow: ellipsis; /* ajoute des ... si trop long */
+  }
+}

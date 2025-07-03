@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Almendra+Display&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Road+Rage&display=swap');
+
+@import url(./templates/header.css);
+@import url(./templates/footer.css);
+@import url(./templates/main.css);
+
+:root {
+
+    --bg-p: black;
+    --bg-s: #191919;
+    --bg-t: #2c2c2c;
+
+
+    --hl-hover: #ff6347;
+    --fl-hover: #e05757;
+    --fl-visited: #b0b0b0;
+
+    --ff-p: 'Road Rage', sans-serif;
+    --ff-s: 'Edu NSW ACT Cursive', cursive;
+    --ff-t: 'Almendra Display', serif;
+
+    --text-color: #fff;
+
+    --card-bg: rgba(0, 0, 0, 0.4);
+
+    --input-bg: rgba(255, 255, 255, 0.15);
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-p);
+  color: var(--text-color);
+  min-height: 100vh;
+}

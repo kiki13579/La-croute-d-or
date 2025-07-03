@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="[https://la-croute-dor.kamihate.fr/]" />
+
+    <title>Pizzeria La Croûte d'Or - Pizzas Artisanales à Chatêllerault - Accueil</title>
+    <meta name="description" content="Découvrez nos délicieuses pizzas artisanales à Chatêllerault. Préparées avec passion, des produits frais et locaux. Commandez en ligne, en livraison ou à emporter !">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <meta property="og:title" content="Pizzeria La Croûte d'Or - Pizzas Artisanales à Chatêllerault" />
+    <meta property="og:description" content="Découvrez nos délicieuses pizzas artisanales à Chatêllerault. Préparées avec passion, des produits frais et locaux. Commandez en ligne, en livraison ou à emporter !" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="[https://la-croute-dor.kamihate.fr/]" />
+    <meta property="og:site_name" content="La Croûte d'Or" />
+    <meta property="og:image" content="[https://la-croute-dor.kamihate.fr/images/og-image-pizzeria.jpg]" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pizzeria La Croûte d'Or - Pizzas Artisanales à Chatêllerault">
+    <meta name="twitter:description" content="Envie d'une vraie pizza artisanale à Chatêllerault ? Découvrez notre menu et commandez en ligne !">
+    <meta name="twitter:image" content="[https://la-croute-dor.kamihate.fr/images/twitter-image-pizzeria.jpg]">
+    <link rel="stylesheet" href="./css/root.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PizzaPlace",
+      "name": "La Croûte d'Or",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[123 Rue de la Pizza]",
+        "addressLocality": "[Chatêllerault]",
+        "postalCode": "[86100]",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "[45.757993]",
+        "longitude": "[4.832011]"
+      },
+      "url": "[https://la-croute-dor.kamihate.fr/]",
+      "telephone": "+33[401020304]",
+      "servesCuisine": "Pizza",
+      "priceRange": "€€",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "11:30",
+          "closes": "14:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "18:30",
+          "closes": "22:00"
+        }
+      ],
+      "image": "[https://la-croute-dor.kamihate.fr/images/logo-pizzeria.jpg]"
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <h1>La croute d'or</h1>
+            <ul class="nav-links">
+                <li><a href="./index.html" class="active ">Accueil</a></li>
+                <hr size="1" noShade>
+                <li><a href="./html/panier.html">Panier</a></li>
+                <hr size="1" noShade>
+                <li><a href="./html/connexion.html">Connexion</a></li>
+            </ul>
+        </nav>
+        <div class="header-content">
+            <h2>Bienvenue chez La croute d'or</h2>
+            <p>Des pizzas artisanales goutues et savoureuses préparées avec des produits frais et locaux.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="filtres">
+            <label for="filtreCategorie">Filtrer par catégorie :</label>
+            <select id="filtreCategorie">
+                <option value="">Toutes</option>
+                <!-- Catégories dynamique -->
+            </select>
+        </section>
+      
+        <section id="titreCategorie"></section>
+      
+        <section id="listePizzas" class="pizzas-container">
+            <!-- Pizzas dynamique -->
+        </section>
+      
+        <div class="commande-global">
+            <button id="btnCommander">Commander</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 La croute d'or. Tous droits réservés.</p>
+            <p>Conception et développement par <a href="https://www.kamihate.fr" class="dev">Kamihate</a></p>
+        </div>
+        <nav class="footer-nav">
+            <ul class="footer-links">
+                <li><a href="./html/reglements.html" class="footer-link">Nos règlements d'utilisation et conditions</a></li>
+                <li><a href="./html/produits.html" class="footer-link">Nos produits</a></li>
+                <li><a href="./html/equipe.html" class="footer-link">Notre équipe</a></li>
+                <li><a href="./html/contact.html" class="footer-link">Contactez-nous</a></li>
+                <li><a href="./html/mentions.html" class="footer-link">Mentions légales</a></li>
+            </ul>
+            <hr size="1" noShade>
+            <ul class="footer-links">
+                <li><a href="./html/confidentialite.html" class="footer-link">Politique de confidentialité</a></li>
+                <li><a href="./html/plan.html" class="footer-link">Plan du site</a></li>
+                <li><a href="./html/accessibilite.html" class="footer-link">Accessibilité</a></li>
+                <li><a href="./html/faq.html" class="footer-link">FAQ</a></li>
+                <li><a href="./html/blog.html" class="footer-link">Blog</a></li>
+            </ul>
+            <hr size="1" noShade>
+            <ul class="footer-links">
+                <li><a href="./html/carrieres.html" class="footer-link">Carrières</a></li>
+                <li><a href="./html/partenaires.html" class="footer-link">Partenaires</a></li>
+                <li><a href="./html/temoignages.html" class="footer-link">Témoignages</a></li>
+                <li><a href="./html/reseaux_sociaux.html" class="footer-link">Réseaux sociaux</a></li>
+                <li><a href="./html/newsletter.html" class="footer-link">Newsletter</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

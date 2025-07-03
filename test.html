@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/root.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <h1>La croute d'or</h1>
+            <ul class="nav-links">
+                <li><a href="./index.html" class="active ">Accueil</a></li>
+                <hr size="1" noShade>
+                <li><a href="./html/panier.html">Panier</a></li>
+                <hr size="1" noShade>
+                <li><a href="./html/connexion.html">Connexion</a></li>
+            </ul>
+        </nav>
+        <div class="header-content">
+            <h2>Bienvenue chez La croute d'or</h2>
+            <p>Des pizzas artisanales goutues et savoureuses préparées avec des produits frais et locaux.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="filtres">
+            <label for="filtreCategorie">Filtrer par catégorie :</label>
+            <select id="filtreCategorie">
+                <option value="">Toutes</option>
+                <!-- Catégories dynamique -->
+            </select>
+        </section>
+      
+        <section id="titreCategorie"></section>
+      
+        <section id="listePizzas" class="pizzas-container">
+            <!-- Pizzas dynamique -->
+        </section>
+      
+        <div class="commande-global">
+            <button id="btnCommander">Commander</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 La croute d'or. Tous droits réservés.</p>
+            <p>Conception et développement par <a href="https://www.kamihate.fr" class="dev">Kamihate</a></p>
+        </div>
+        <nav class="footer-nav">
+            <ul class="footer-links">
+                <li><a href="./html/reglements.html" class="footer-link">Nos règlements d'utilisation et conditions</a></li>
+                <li><a href="./html/produits.html" class="footer-link">Nos produits</a></li>
+                <li><a href="./html/equipe.html" class="footer-link">Notre équipe</a></li>
+                <li><a href="./html/contact.html" class="footer-link">Contactez-nous</a></li>
+                <li><a href="./html/mentions.html" class="footer-link">Mentions légales</a></li>
+            </ul>
+            <hr size="1" noShade>
+            <ul class="footer-links">
+                <li><a href="./html/confidentialite.html" class="footer-link">Politique de confidentialité</a></li>
+                <li><a href="./html/plan.html" class="footer-link">Plan du site</a></li>
+                <li><a href="./html/accessibilite.html" class="footer-link">Accessibilité</a></li>
+                <li><a href="./html/faq.html" class="footer-link">FAQ</a></li>
+                <li><a href="./html/blog.html" class="footer-link">Blog</a></li>
+            </ul>
+            <hr size="1" noShade>
+            <ul class="footer-links">
+                <li><a href="./html/carrieres.html" class="footer-link">Carrières</a></li>
+                <li><a href="./html/partenaires.html" class="footer-link">Partenaires</a></li>
+                <li><a href="./html/temoignages.html" class="footer-link">Témoignages</a></li>
+                <li><a href="./html/reseaux_sociaux.html" class="footer-link">Réseaux sociaux</a></li>
+                <li><a href="./html/newsletter.html" class="footer-link">Newsletter</a></li>
+
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
